@@ -1,0 +1,38 @@
+services:
+  # Backend Service
+  - type: web
+    name: task-management-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        fromDatabase:
+          name: task-management-db
+          property: connectionString
+
+  # Frontend Service  
+  - type: web
+    name: task-management-frontend
+    env: static
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://task-management-backend.onrender.com/api/*
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+databases:
+  - name: task-management-db
+    databaseName: taskmanagement
+    user: taskuser
+    plan: free

@@ -31,7 +31,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "vercel-build": "npm run build"
   },
   "eslintConfig": {
     "extends": [

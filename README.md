@@ -171,14 +171,40 @@ npm test
 
 ## 🚀 Deployment
 
-### Frontend (Netlify/Vercel)
+### Quick Vercel Deployment
+
+**Step 1: Deploy Backend (Railway)**
+```bash
+# Go to railway.app, connect GitHub, deploy backend
+# Add environment variables: NODE_ENV, PORT, MONGODB_URI
+```
+
+**Step 2: Deploy Frontend (Vercel)**
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy
+vercel --prod
+```
+
+**Or use Vercel Dashboard:**
+1. Go to vercel.com → New Project
+2. Import GitHub repo: `hardikmishra0910/Tasks-Manager-dashboard`
+3. Set Root Directory: `frontend`
+4. Framework: Vite
+5. Add environment variables
+
+### Alternative Deployments
+
+#### Frontend (Netlify)
 ```bash
 cd frontend
 npm run build
-# Deploy the build folder
+# Deploy the dist folder
 ```
 
-### Backend (Heroku/Railway)
+#### Backend (Railway/Render/Heroku)
 ```bash
 cd backend
 # Follow platform-specific deployment instructions
