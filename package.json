@@ -1,0 +1,19 @@
+{
+  "name": "task-management-dashboard",
+  "version": "1.0.0",
+  "description": "A complete task management dashboard with React frontend and Node.js backend",
+  "main": "server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "install-deps": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "keywords": ["task", "management", "react", "nodejs", "mongodb"],
+  "author": "Senior Full-Stack Developer",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
